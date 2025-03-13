@@ -1,0 +1,210 @@
+@font-face {
+    font-family: 'halong-vf';
+    src: url('../fonts/halong-vf.ttf') format('truetype'); /* Gunakan format 'opentype' untuk .otf */
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Rasputin';
+    src: url('../fonts/Rasputin.otf') format('opentype'); /* Gunakan format 'opentype' untuk .otf */
+    font-weight: normal;
+    font-style: normal;
+  }
+
+
+/* Analysis in 3 Simple Steps Section */
+.analysis3steps-container {
+    background-color: #000;
+    color: #fff;
+    height: 100vh;
+    padding: 40px 80px 80px 80px;
+    font-family: Arial, sans-serif;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.analysis3steps-header {
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.how-it-work {
+    color: white;
+    font-family: 'halong-vf';
+    font-size: 12px;
+    padding: 6px 0px;
+    width: 100px;
+    text-align: center;
+    border-radius: 30px;
+    background-color: rgba(255, 255, 255, 0.1); /* White with 10% opacity */
+    backdrop-filter: blur(5px); /* Adds a slight blur effect to content behind */
+    -webkit-backdrop-filter: blur(5px); /* For Safari support */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    margin-bottom: 20px;
+    letter-spacing: 0.5px;
+    font-weight: normal;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.analysis-main-heading {
+    color: #fff;
+    font-family: 'Rasputin', sans-serif;
+    font-size: 24px;
+    text-align: left;
+    letter-spacing: 2px;
+    font-weight: 300;
+    margin: 0;
+}
+
+.analysis3steps-content-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 40px;
+}
+
+
+
+/* Left Content Styles */
+/* Styling untuk konten bagian kiri dengan kotak custom */
+.analysis3steps-left-content {
+    flex: 1;
+    padding: 30px;
+    background-color: var(--box-color, transparent); /* Warna default, bisa dikustomisasi dengan variabel CSS */
+    border-radius: 30px; /* Border radius */
+    border: 2px solid rgba(255, 255, 255, 0.3); /* Border putih dengan opacity 30% */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    margin-right: 20px;
+    max-height: 600px;
+    max-width: 500px;
+
+}
+
+/* Contoh cara mengubah warna untuk tema yang berbeda */
+.theme-blue .analysis3steps-left-content {
+    --box-color: transparent; /* Tema biru gelap */
+}
+
+
+.analysis3steps-title {
+    font-size: 32px;
+    margin-bottom: 40px;
+    font-weight: 300;
+    color: #fff;
+    font-family: 'Rasputin';
+
+    text-align: left;
+}
+
+.analysis3steps-item {
+    display: flex;
+    margin-bottom: 30px;
+    align-items: flex-start;
+}
+
+.analysis3steps-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.analysis3steps-step-content {
+    flex: 1;
+    font-family: 'halong-vf';
+    font-weight: normal;
+
+}
+
+.analysis3steps-step-title {
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-weight: 500;
+    text-align: left;
+}
+
+.analysis3steps-step-desc {
+    color: #b8b8b8;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: left;
+}
+
+.analysis3steps-open-btn {
+    background-color: #fff;
+    font-family: 'halong-vf';
+    color: #000;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Right Content Styles */
+.analysis3steps-right-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80px; /* This will push the right content down */
+
+}
+
+.analysis3steps-card {
+    background: url('../asset/bg-cardstep.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 40px;
+    padding: 30px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Create an overlay for better readability of text on image */
+.analysis3steps-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(16, 30, 62, 0.7) 0%, rgba(10, 20, 40, 0.5) 100%);
+    z-index: 1;
+}
+
+.analysis3steps-card-title {
+    font-size: 20px;
+    margin-bottom: 30px;
+    font-weight: 400;
+    line-height: 1.4;
+    position: relative;
+    z-index: 2;
+}
+
+.analysis3steps-svg-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.analysis3steps-svg {
+    max-width: 100%;
+    height: auto;
+}
+
+.analysis3steps-svg-icon{
+    padding-top: 30px;
+}

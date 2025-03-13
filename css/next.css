@@ -1,0 +1,260 @@
+@font-face {
+    font-family: 'halong-vf';
+    src: url('../fonts/halong-vf.ttf') format('truetype'); /* Gunakan format 'opentype' untuk .otf */
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Rasputin';
+    src: url('../fonts/Rasputin.otf') format('opentype'); /* Gunakan format 'opentype' untuk .otf */
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Gaya container slider */
+.slider-container {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+  
+  .slider-wrapper {
+    display: flex;
+    width: 100%;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .slide {
+    flex: 0 0 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    scroll-snap-align: start;
+    position: relative;
+  }
+  
+/* Slide styles */
+#slide1 {
+    background-color: #040924;
+    background-image: radial-gradient(circle at 70% 50%, rgba(30, 60, 120, 0.3), transparent 70%);
+    color: white;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    background: url('../asset/bg-next.png') no-repeat center top;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  #slide1::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(0, 0, 150, 0.3) 0%, rgba(0, 0, 0, 0) 70%);
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  #slide2::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(0, 0, 150, 0.3) 0%, rgba(0, 0, 0, 0) 70%);
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  #slide3::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(0, 0, 150, 0.3) 0%, rgba(0, 0, 0, 0) 70%);
+    z-index: 1;
+    pointer-events: none;
+  }
+  
+  /* Main container */
+  .container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+    padding: 0 40px;
+    position: relative;
+    z-index: 2;
+  }
+  
+  /* Card container */
+  .card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Crypto card image */
+  .crypto-card-image {
+    margin-top: 100px;
+    width: 320px;
+    height: auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Content container */
+  .content-container {
+    max-width: 500px;
+  }
+  
+  
+  /* Section title */
+  .section-title {
+    font-size: 34px;
+    color: white;
+    margin-top: 0px;
+    font-family: 'Rasputin';
+    font-weight: normal;
+  }
+  
+  /* Section description */
+  .section-description {
+    color: #aaa;
+    line-height: 1.6;
+    font-size: 18px;
+  }
+  
+  /* Big title behind card */
+  .title {
+    font-size: 200px;
+    font-weight: normal;
+    color: #ffffff;
+    opacity: 0.2;
+    position: absolute;
+    top: -6%;
+    font-family: 'halong-vf';
+    left: 50%; /* Moved further right from 60% */
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    white-space: nowrap;
+  }
+  
+
+  /* Sembunyikan scrollbar */
+  .slider-wrapper::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .slider-wrapper {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  
+  /* Container Investasi */
+  .investment-container {
+    width: 100%;
+    max-width: 1000px;
+    padding: 0;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    
+  }
+  
+  /* Konten Tengah dengan Kartu */
+  .center-content {
+    display: flex;
+    justify-content: flex-end; /* Already aligns to the right */
+    align-items: center;
+    width: 60%; /* Increased from 50% to give more space for the card to move right */
+    padding-right: 30px; /* Added padding to push it more to the right */
+  }
+  
+  /* Crypto Card Image */
+  .crypto-card-image {
+    width: 280px; /* Ukuran yang lebih besar */
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Konten Bawah */
+  .bottom-content {
+    text-align: left;
+    max-width: 50%;/* Add padding to the top to push content down */
+    padding: 260px 0px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  
+  .value-heading {
+    color: white;
+    font-size: 14px;
+    padding: 6px 0px;
+    width: 100px;
+    text-align: center;
+    border-radius: 30px;
+    background-color: rgba(255, 255, 255, 0.1); /* White with 10% opacity */
+    margin-bottom: 10px;
+  }
+  
+  .section-title {
+    font-size: 42px;
+    color: white;
+    font-weight: normal;
+    margin-bottom: 0px;
+
+  }
+  
+  .section-description {
+    color: #aaa;
+    line-height: 1.5;
+    font-size: 16px;
+    max-width: 90%;/* Add padding to the top to push content down */
+  }
+
+  #slide2 {
+    background-color: #040924;
+    background-image: radial-gradient(circle at 70% 50%, rgba(30, 60, 120, 0.3), transparent 70%);
+    color: white;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    background: url('../asset/bg-next.png') no-repeat center top;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  #slide3 {
+    background-color: #040924;
+    background-image: radial-gradient(circle at 70% 50%, rgba(30, 60, 120, 0.3), transparent 70%);
+    color: white;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    background: url('../asset/bg-next.png') no-repeat center top;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }

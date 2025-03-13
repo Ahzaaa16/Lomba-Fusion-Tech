@@ -1,0 +1,280 @@
+@font-face {
+    font-family: 'Rasputin';
+    src: url('../fonts/Rasputin.otf') format('opentype'); /* Gunakan format 'opentype' untuk .otf */
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'halong-vf';
+    src: url('../fonts/halong-vf.ttf') format('truetype'); /* Gunakan format 'opentype' untuk .otf */
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Panchang-Regular';
+    src: url('../fonts/Panchang-Regular.otf') format('opentype'); /* Gunakan format 'opentype' untuk .otf */
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    /* Set the background image directly on the body */
+    background-image: url('../asset/Login.png'); /* Replace with your image path */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #000; /* Fallback color */
+  }
+  
+  .dashboard-container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Inter', sans-serif;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    /* Remove the gradient background */
+    background: none;
+  }
+  
+  .dashboard-container:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at top, rgba(0, 153, 255, 0.3), transparent 50%);
+    z-index: 1;
+    pointer-events: none;
+  }
+  
+  .content-wrapper {
+    display: flex;
+    width: 100%;
+    max-width: 900px;
+    background-color: rgba(13, 17, 23, 0.6); /* More transparent background */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* For Safari */
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    z-index: 2;
+    position: relative;
+    border: 1px solid rgba(30, 41, 59, 0.4);
+  }
+  
+  .left-content {
+    flex: 1;
+    padding: 2rem 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .right-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+  }
+  
+  .crypto-card-image {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+  }
+  
+  .headline {
+    font-size: 2rem;
+    font-weight: normal;
+    margin-bottom: 2.5rem;
+    line-height: 1.2;
+    font-family: 'halong-vf';
+  }
+  
+  .icon-container {
+    display: inline-flex;
+    align-items: center;
+    vertical-align: middle;
+  }
+  
+  .star-icon {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .login-form {
+    width: 100%;
+    max-width: 450px;
+  }
+  
+  .input-group {
+    position: relative;
+    font-family: 'halong-vf';
+    margin-bottom: 1.5rem;
+    width: 100%;
+  }
+  
+  .form-input {
+    width: 100%;
+    font-family: 'halong-vf';
+    padding: 1rem;
+    border-radius: 30px;
+    border: 1px solid rgba(30, 41, 59, 0.8);
+    background-color: rgba(13, 17, 23, 0.6);
+    color: white;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+  }
+  
+  .form-input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+  }
+  
+  .form-input:focus {
+    border-color: rgba(59, 130, 246, 0.6);
+    background-color: rgba(13, 17, 23, 0.8);
+  }
+  
+  .toggle-password {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+  
+  .terms-container {
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+  }
+  
+  .checkbox-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  .checkbox-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  .checkmark {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 20px;
+    width: 20px;
+    background-color: rgba(13, 17, 23, 0.6);
+    border: 1px solid rgba(30, 41, 59, 0.8);
+    border-radius: 4px;
+  }
+  
+  .checkbox-container input:checked ~ .checkmark {
+    background-color: rgba(59, 130, 246, 0.8);
+    border-color: transparent;
+  }
+  
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  .checkbox-container input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  .checkbox-container .checkmark:after {
+    left: 7px;
+    top: 3px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
+  
+  .terms-text {
+    margin-left: 0.5rem;
+    font-family: 'halong-vf';
+  }
+  
+  .terms-text a {
+    color: #A6FFFF;
+    text-decoration: none;
+  }
+  
+  .sign-in-button {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(80deg, #c4d1d1 0%, #1D5699 100%);
+    border: none;
+    border-radius: 30px;
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 1.5rem;
+    font-family: 'halong-vf';
+  }
+  
+  .sign-in-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+  }
+  
+  .sign-up-prompt {
+    text-align: center;
+    font-family: 'halong-vf';
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  .sign-up-link {
+    color: #A6FFFF;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  
+  @media (max-width: 992px) {
+    .content-wrapper {
+      flex-direction: column;
+      width: 95%;
+    }
+    
+    .left-content {
+      padding: 2rem;
+    }
+    
+    .headline {
+      font-size: 2rem;
+    }
+  }

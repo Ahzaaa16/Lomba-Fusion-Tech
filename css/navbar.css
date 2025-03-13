@@ -1,0 +1,260 @@
+@font-face {
+    font-family: 'Rasputin';
+    src: url('../fonts/Rasputin.otf') format('opentype'); /* Gunakan format 'opentype' untuk .otf */
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'halong-vf';
+    src: url('../fonts/halong-vf.ttf') format('truetype'); /* Gunakan format 'opentype' untuk .otf */
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Panchang-Regular';
+    src: url('../fonts/Panchang-Regular.otf') format('opentype'); /* Gunakan format 'opentype' untuk .otf */
+    font-weight: normal;
+    font-style: normal;
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;    
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 0;
+    backdrop-filter: blur(10px); /* Efek Blur */
+    color: white;
+    z-index: 1000;
+}
+
+.nav-links {
+        margin:  5px;
+        font-family: 'halong-vf';
+        font-size: 14px;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+.navbar ul li a {
+    color: gray;
+    text-decoration: none;
+}
+
+.navbar ul li a:hover {
+    color: white;
+}
+
+.navbar .buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.nav-actions {
+display: flex;
+align-items: center;
+gap: 20px;
+padding: 0px 25px;
+}
+
+.language-help {
+display: flex;
+align-items: center;
+gap: 10px;
+}
+
+.lang-btn, .help-btn {
+background: none;
+border: none;
+font-family: 'halong-vf';
+color: white;
+font-size: 14px;
+display: flex;
+align-items: center;
+gap: 5px;
+cursor: pointer;
+}
+
+.lang-btn img, .help-btn img {
+width: 16px;
+}
+
+.btn {
+    padding: 8px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 15px;
+    width: 90px;
+    text-align: center;
+    margin-right: 10px;
+}
+
+.btn-signup, .btn-login {
+    font-family: 'halong-vf';
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+    z-index: 1;
+}
+
+.btn-signup {
+    background-color: white;
+    color: black;
+    border: 1px solid transparent;
+}
+
+.btn-login {
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+}
+
+/* Adding a ::before pseudo-element for both buttons */
+.btn-signup::before, .btn-login::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(80deg, #c4d1d1 0%, #1D5699 100%);
+    transition: all 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+    z-index: -1;
+}
+
+/* Hover effects */
+.btn-signup:hover, .btn-login:hover {
+    color: white !important;
+    border: 1px solid white;
+}
+
+.btn-signup:hover::before, .btn-login:hover::before {
+    left: 0;
+}
+
+.logo-container {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start; 
+    padding-left: 160px;
+    
+}
+
+.logo {
+    font-size: auto;
+    font-weight: bold;
+    font-family: 'Panchang-Regular';
+
+}
+
+.logo-img {
+    width: 20px; /* Sesuaikan ukuran logo */
+    height: auto;
+    margin-right: 10px; /* Beri jarak antara logo dan teks */
+}
+
+/* Dropdown Language */
+.lang-dropdown {
+    position: relative;
+    font-family: 'halong-vf';
+
+}
+
+.lang-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 5px;   
+    cursor: pointer;
+    padding: 5px 10px;
+}
+
+    .dropdown-menu {
+        position: absolute;
+        top: 30px;
+        left: -25px;
+        font-family: 'halong-vf';
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 6px;
+        list-style: none;
+        padding: 5px 0;
+        min-width: 140px;
+        box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
+        border-image: linear-gradient(45deg, #ffffff, #9ec5ff) 1;
+        color: white;
+        border-radius: 15px;
+        text-align: center;
+        
+        opacity: 0;
+        transform: translateY(-10px);
+        visibility: hidden;
+        transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+        
+        display: flex;
+        flex-direction: column; /* Elemen tersusun ke bawah */
+        align-items: stretch; /* Pastikan elemen memenuhi lebar */
+        overflow: hidden; /* Mencegah hover keluar kotak */
+    }
+
+    .dropdown-menu::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: 15px;
+        border: 1px solid white;
+        background: linear-gradient(45deg, #ffffff, #9ec5ff) border-box;
+        -webkit-mask: 
+           linear-gradient(#fff 0 0) padding-box, 
+           linear-gradient(#fff 0 0);
+        -webkit-mask-composite: destination-out;
+        mask-composite: exclude;
+        pointer-events: none;
+      }
+
+    /* Saat dropdown ditampilkan */
+    .dropdown-menu.show {
+        opacity: 1;
+        transform: translateY(0);
+        visibility: visible;
+    }
+
+    /* Pastikan item memiliki lebar penuh */
+    .dropdown-menu li {
+        display: block;
+        padding: 10px 15px;
+        cursor: pointer;
+        font-size: 14px;
+        width: 100%; /* Isi seluruh lebar dropdown */
+        text-align: left;
+        background: transparent;
+        transition: background 0.3s ease;
+    }
+
+    /* Hover efek tidak keluar kotak */
+    .dropdown-menu li:hover {
+        background: rgba(255, 255, 255, 0.3); /* Warna lebih jelas */
+    }
+
+/* Add this to your existing CSS */
+
+.dropdown-arrow {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.dropdown-arrow.rotate {
+    transform: rotate(180deg);
+}

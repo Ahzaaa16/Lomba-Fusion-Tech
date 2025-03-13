@@ -1,0 +1,142 @@
+@font-face {
+    font-family: 'Rasputin';
+    src: url('../fonts/Rasputin.otf') format('opentype'); /* Gunakan format 'opentype' untuk .otf */
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'halong-vf';
+    src: url('../fonts/halong-vf.ttf') format('truetype'); /* Gunakan format 'opentype' untuk .otf */
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Panchang-Regular';
+    src: url('../fonts/Panchang-Regular.otf') format('opentype'); /* Gunakan format 'opentype' untuk .otf */
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+.gtc-contact-section {
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+    color: #fff;
+    overflow: hidden;
+  }
+  
+  .gtc-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+  }
+  
+  .gtc-network-globe {
+    position: absolute;
+    left: 0;
+    bottom: 0;  /* Position at the bottom */
+    width: 100%;
+    height: 100%;
+    background-image: url('../asset/background-hero.png');
+    background-size: 100% 150%; /* Lebar penuh, tinggi mengikuti rasio */
+    background-position: bottom center;  /* Position at bottom center */
+    background-repeat: no-repeat;
+    z-index: 0;
+  }
+  
+  .gtc-content {
+    position: relative;
+    text-align: center;
+    z-index: 2;
+    padding: 0 20px;
+  }
+  
+  .gtc-heading {
+    font-size: 2.5rem;
+    font-weight: 300;
+    background: linear-gradient(130deg, #F5F9FF 55%, rgba(245, 249, 255, 0) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'Rasputin';
+    margin-bottom: 40px;
+    max-width: 800px;
+  }
+  
+  .gtc-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+  
+.gtc-btn {
+    font-family: 'halong-vf';
+    display: inline-block;
+    padding: 10px 28px;
+    border-radius: 15px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: all 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* Shared pseudo-element for the hover effect */
+.gtc-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    transition: all 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+    z-index: -1;
+}
+  
+.gtc-btn-outline {
+    border: 1px solid #fff;
+    color: #fff;
+}
+
+.gtc-btn-outline::before {
+    background: linear-gradient(80deg, #c4d1d1 0%, #1D5699 100%);
+}
+  
+.gtc-btn-outline:hover::before {
+    left: 0;
+}
+
+.gtc-btn-outline:hover {
+    color: #fff;
+    border-color: transparent;
+}
+  
+.gtc-btn-filled {
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #fff;
+}
+
+.gtc-btn-filled::before {
+    background: linear-gradient(80deg, #c4d1d1 0%, #1D5699 100%);
+}
+  
+.gtc-btn-filled:hover::before {
+    left: 0;
+}
+
+.gtc-btn-filled:hover {
+    color: #fff;
+    border-color: transparent;
+}
