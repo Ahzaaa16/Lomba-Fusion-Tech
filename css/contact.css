@@ -140,3 +140,99 @@
     color: #fff;
     border-color: transparent;
 }
+
+/* Existing CSS remains unchanged */
+
+/* Responsive styles */
+@media screen and (max-width: 992px) {
+    .gtc-contact-section {
+      height: 60vh;
+    }
+    
+    .gtc-heading {
+      font-size: 2.2rem;
+      max-width: 700px;
+    }
+    
+    .gtc-network-globe {
+      background-size: 120% 150%;
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .gtc-contact-section {
+      height: 50vh;
+    }
+    
+    .gtc-heading {
+      font-size: 1.8rem;
+      max-width: 600px;
+      margin-bottom: 30px;
+    }
+    
+    .gtc-btn {
+      padding: 10px 24px;
+      font-size: 15px;
+    }
+    
+    .gtc-network-globe {
+      background-size: 140% 150%;
+    }
+  }
+  
+  @media screen and (max-width: 576px) {
+    .gtc-contact-section {
+      height: auto;
+      min-height: 45vh;
+      padding: 50px 0;
+    }
+    
+    .gtc-heading {
+      font-size: 1.5rem;
+      max-width: 100%;
+      margin-bottom: 25px;
+      padding: 0 10px;
+    }
+    
+    .gtc-buttons {
+      flex-direction: column;
+      gap: 15px;
+      width: 80%;
+      max-width: 250px;
+      margin: 0 auto;
+    }
+    
+    .gtc-btn {
+      width: 100%;
+      text-align: center;
+      padding: 12px 20px;
+    }
+    
+    .gtc-network-globe {
+      background-size: 180% 150%;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .gtc-contact-section {
+      min-height: 40vh;
+    }
+    
+    .gtc-heading {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+    }
+    
+    .gtc-btn {
+      font-size: 14px;
+      padding: 10px 16px;
+    }
+    
+    .gtc-network-globe {
+      background-size: 200% 150%;
+    }
+    
+    .gtc-content {
+      padding: 0 15px;
+    }
+  }

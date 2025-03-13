@@ -38,6 +38,9 @@
     text-align: center;
     scroll-snap-align: start;
     position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+    max-width: 100%;
   }
   
 /* Slide styles */
@@ -258,3 +261,293 @@
     align-items: center;
     min-height: 100vh;
   }
+
+  /* Media Queries for Responsiveness */
+/* Base mobile styles (for screens up to 480px) */
+@media (max-width: 480px) {
+  .investment-container {
+    flex-direction: column;
+    justify-content: center;
+    height: auto;
+    padding: 40px 20px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .center-content {
+    width: 100%;
+    justify-content: center;
+    padding-right: 0;
+    margin-bottom: 30px;
+    box-sizing: border-box;
+  }
+  
+  .bottom-content {
+    text-align: center;
+    max-width: 100%;
+    width: 100%;
+    padding: 0;
+    align-items: center;
+    box-sizing: border-box;
+  }
+  
+  .section-description {
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 14px;
+  }
+  
+  .crypto-card-image {
+    width: 220px;
+    max-width: 100%;
+  }
+  
+  .title {
+    font-size: 80px;
+    top: 5%;
+    width: 100%;
+    white-space: nowrap;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .section-title {
+    font-size: 28px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .slide {
+    min-height: 100vh;
+    padding: 20px;
+    align-items: flex-start;
+    padding-top: 80px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .slider-wrapper, .slider-container {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    box-sizing: border-box;
+  }
+}
+
+/* Small devices (576px and up) */
+@media (min-width: 481px) and (max-width: 576px) {
+  .investment-container {
+    flex-direction: column;
+    justify-content: center;
+    height: auto;
+    padding: 60px 20px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .center-content {
+    width: 100%;
+    justify-content: center;
+    padding-right: 0;
+    margin-bottom: 40px;
+    box-sizing: border-box;
+  }
+  
+  .bottom-content {
+    text-align: center;
+    max-width: 100%;
+    width: 100%;
+    padding: 0;
+    align-items: center;
+    box-sizing: border-box;
+  }
+  
+  .section-description {
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .crypto-card-image {
+    width: 240px;
+    max-width: 100%;
+  }
+  
+  .title {
+    font-size: 100px;
+    top: 5%;
+    width: 100%;
+    white-space: nowrap;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .slide {
+    min-height: 100vh;
+    padding: 20px;
+    align-items: flex-start;
+    padding-top: 100px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .slider-wrapper, .slider-container {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    box-sizing: border-box;
+  }
+}
+
+/* Medium devices (768px and up) */
+@media (min-width: 577px) and (max-width: 768px) {
+  .investment-container {
+    flex-direction: column;
+    height: auto;
+    padding: 80px 30px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .center-content {
+    width: 100%;
+    justify-content: center;
+    padding-right: 0;
+    margin-bottom: 50px;
+    box-sizing: border-box;
+  }
+  
+  .bottom-content {
+    text-align: center;
+    max-width: 90%;
+    padding: 0;
+    align-items: center;
+    box-sizing: border-box;
+  }
+  
+  .title {
+    font-size: 120px;
+    top: 5%;
+    width: 100%;
+    white-space: nowrap;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .crypto-card-image {
+    width: 260px;
+    max-width: 100%;
+  }
+  
+  .section-title {
+    font-size: 32px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .slide {
+    min-height: 100vh;
+    padding: 30px;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .slider-wrapper, .slider-container {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    box-sizing: border-box;
+  }
+}
+
+/* Large devices (992px and up) */
+@media (min-width: 769px) and (max-width: 992px) {
+  .investment-container {
+    max-width: 100%;
+    padding: 0 30px;
+    box-sizing: border-box;
+  }
+  
+  .center-content {
+    width: 50%;
+    box-sizing: border-box;
+  }
+  
+  .bottom-content {
+    max-width: 50%;
+    padding: 180px 0px 20px 20px;
+    box-sizing: border-box;
+  }
+  
+  .crypto-card-image {
+    width: 240px;
+    max-width: 100%;
+  }
+  
+  .title {
+    font-size: 140px;
+    width: 100%;
+    white-space: nowrap;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .section-title {
+    font-size: 34px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .slide {
+    min-height: 100vh;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .slider-wrapper, .slider-container {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    box-sizing: border-box;
+  }
+}
+
+/* Extra styling to ensure the slider works well on all devices */
+.slider-wrapper {
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Improve touch scrolling on mobile */
+.slide {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  flex: 0 0 100%;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Fix background scaling on mobile */
+#slide1, #slide2, #slide3 {
+  background-size: cover;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}

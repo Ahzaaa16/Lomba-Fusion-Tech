@@ -278,3 +278,131 @@ body, html {
       font-size: 2rem;
     }
   }
+
+  @media (max-width: 992px) {
+    .content-wrapper {
+      flex-direction: column;
+      width: 90%;
+      max-width: 95%;
+      margin: 20px auto;
+    }
+    
+    .left-content {
+      padding: 2rem 1.5rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    
+    .headline {
+      font-size: 1.8rem;
+      word-wrap: break-word;
+    }
+    
+    .login-form {
+      width: 100%;
+    }
+    .right-content {
+      display: none; /* Hide the image on very small screens */
+    }
+  }
+  
+  /* Add more specific fixes for smaller screens */
+  @media (max-width: 768px) {
+    .dashboard-container {
+      padding: 1rem;
+      box-sizing: border-box;
+    }
+    
+    .content-wrapper {
+      width: 100%;
+      max-width: 100%;
+    }
+    
+    .headline {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .terms-container {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    .terms-text {
+      margin-left: 0;
+      font-size: 0.8rem;
+    }
+    
+    .right-content {
+      padding: 1rem 0.5rem;
+    }
+    
+    .crypto-card-image {
+      max-width: 80%;
+    }
+    .right-content {
+      display: none; /* Hide the image on very small screens */
+    }
+  }
+  
+  /* Extra fixes for very small screens */
+  @media (max-width: 480px) {
+    .dashboard-container {
+      padding: 0.5rem;
+    }
+    
+    .content-wrapper {
+      border-radius: 10px;
+      overflow-x: hidden;
+    }
+    
+    .left-content {
+      padding: 1.5rem 1rem;
+    }
+    
+    .headline {
+      font-size: 1.2rem;
+    }
+    
+    .form-input {
+      padding: 0.8rem;
+      font-size: 0.9rem;
+    }
+    
+    .sign-in-button {
+      padding: 0.8rem;
+    }
+    
+    .input-group {
+      margin-bottom: 1rem;
+    }
+    
+    .terms-text {
+      font-size: 0.75rem;
+    }
+    
+    .sign-up-prompt {
+      font-size: 0.8rem;
+    }
+    
+    .checkbox-container {
+      padding-left: 25px;
+      font-size: 0.8rem;
+    }
+    
+    .checkmark {
+      height: 16px;
+      width: 16px;
+    }
+    
+    .checkbox-container .checkmark:after {
+      left: 5px;
+      top: 2px;
+      width: 4px;
+      height: 8px;
+    }
+    
+    .right-content {
+      display: none; /* Hide the image on very small screens */
+    }
+  }

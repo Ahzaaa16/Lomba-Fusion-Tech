@@ -42,7 +42,7 @@
   .neovis-text-content {
     flex: 1;
     text-align: left;
-    max-width: 5  00px;
+    max-width: 600px;
     box-sizing: border-box;
   }
   
@@ -114,4 +114,150 @@
   max-width: 100%;
   box-sizing: border-box;
   margin-top: 30px;
+}
+
+@media (max-width: 480px) {
+  .neovis-about-section {
+    height: auto;
+    padding: 50px 20px;
+  }
+  
+  .neovis-container {
+    padding: 0 10px;
+  }
+  
+  .neovis-content-wrapper {
+    flex-direction: column;
+  }
+  
+  .neovis-text-content {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 40px;
+  }
+  
+  .neovis-title {
+    font-size: 18px;
+  }
+  
+  .neovis-feature p {
+    font-size: 14px;
+  }
+  
+  .neovis-graph-container {
+    width: 100%;
+    right: 0;
+    margin: 0 auto;
+    height: 250px;
+    padding: 0;
+  }
+  
+  .neovis-title-container {
+    gap: 10px;
+  }
+  
+  .neovis-title-icon {
+    width: 20px;
+  }
+}
+
+/* Small devices (576px and up) */
+@media (min-width: 481px) and (max-width: 576px) {
+  .neovis-about-section {
+    height: auto;
+    padding: 60px 25px;
+  }
+  
+  .neovis-content-wrapper {
+    flex-direction: column;
+  }
+  
+  .neovis-text-content {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 40px;
+  }
+  
+  .neovis-title {
+    font-size: 18px;
+  }
+  
+  .neovis-feature p {
+    font-size: 15px;
+  }
+  
+  .neovis-graph-container {
+    width: 100%;
+    right: 0;
+    margin: 0 auto;
+    height: 280px;
+    padding: 0;
+  }
+}
+
+/* Medium devices (768px and up) */
+@media (min-width: 577px) and (max-width: 768px) {
+  .neovis-about-section {
+    height: auto;
+    padding: 70px 30px;
+  }
+  
+  .neovis-content-wrapper {
+    flex-direction: column;
+  }
+  
+  .neovis-text-content {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 50px;
+  }
+  
+  .neovis-title {
+    font-size: 20px;
+  }
+  
+  .neovis-graph-container {
+    width: 100%;
+    right: 0;
+    margin: 0 auto;
+    height: 300px;
+    padding: 0;
+  }
+}
+
+/* Large devices (992px and up) */
+@media (min-width: 769px) and (max-width: 992px) {
+  .neovis-about-section {
+    height: auto;
+    min-height: 60vh;
+    padding: 70px 35px;
+  }
+  
+  .neovis-content-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+  }
+  
+  .neovis-text-content {
+    flex: 0 0 48%;
+    max-width: 48%;
+  }
+  
+  .neovis-graph-container {
+    flex: 0 0 48%;
+    right: 0;
+    height: 320px;
+    padding: 0;
+    margin-top: 40px;
+  }
+}
+
+/* Fix for image in all responsive views */
+@media (max-width: 992px) {
+  .neovis-graph-container img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
 }

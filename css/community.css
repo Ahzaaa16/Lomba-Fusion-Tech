@@ -219,3 +219,128 @@
     transform: translateY(0) translateX(0) rotate(0deg);
   }
 }
+
+/* Existing CSS remains unchanged */
+
+/* Responsive styles */
+@media screen and (max-width: 992px) {
+  .inv_community_container {
+    gap: 100px;
+  }
+  
+  .inv_community_heading {
+    font-size: 36px;
+  }
+  
+  .blur-image-1 {
+    height: 35%;
+  }
+  
+  .blur-image-2 {
+    height: 50%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .inv_community_container {
+    flex-direction: column;
+    gap: 60px;
+    align-items: center;
+  }
+  
+  .inv_community_left_content,
+  .inv_community_right_content {
+    max-width: 100%;
+    width: 100%;
+  }
+  
+  .inv_community_heading {
+    font-size: 32px;
+    text-align: center;
+  }
+  
+  .inv_community_description {
+    text-align: center;
+  }
+  
+  .inv_community_small_text {
+    margin: 0 auto 10px;
+  }
+  
+  .inv_community_btn {
+    display: block;
+    margin: 0 auto 30px;
+    text-align: center;
+  }
+  
+  .inv_community_right_content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px 20px;
+  }
+  
+  .inv_community_stat {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .inv_community_wrapper {
+    padding: 40px 0;
+    height: auto;
+    min-height: 100vh;
+  }
+  
+  .inv_community_container {
+    padding: 0 15px;
+  }
+  
+  .inv_community_heading {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  
+  .inv_community_btn {
+    padding: 10px 20px;
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+  
+  .inv_community_description {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+  
+  .inv_community_stat_number {
+    font-size: 28px;
+  }
+  
+  .inv_community_stat_label {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .inv_community_right_content {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .inv_community_heading {
+    font-size: 24px;
+  }
+  
+  .blur-image-1 {
+    left: -20%;
+    height: 30%;
+  }
+  
+  .blur-image-2 {
+    right: -20%;
+    height: 40%;
+  }
+  
+  .inv_community_stat_number {
+    font-size: 24px;
+  }
+}

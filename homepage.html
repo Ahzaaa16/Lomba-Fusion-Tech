@@ -24,11 +24,17 @@
   </head>
   <body>
     <nav class="navbar">
+      <div class="burger-menu">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+
       <ul class="nav-links">
         <li><a href="#home">Home</a></li>
         <li><a href="#main-value">Main Value</a></li>
         <li><a href="#how-it-works">How it Works</a></li>
-        <li><a href="#community">Community</a></li>
+        <li><a href="#analysis">AI-Analysis</a></li>
       </ul>
 
       <div class="logo-container">
@@ -58,7 +64,12 @@
 
         <div class="buttons">
           <button class="btn btn-signup">Sign Up</button>
-          <button class="btn btn-login" onclick="window.location.href='loginpage.html'">Login</button>
+          <button
+            class="btn btn-login"
+            onclick="window.location.href='loginpage.html'"
+          >
+            Login
+          </button>
         </div>
       </div>
     </nav>
@@ -147,11 +158,12 @@
 
             <div class="bottom-content">
               <div class="value-heading">Our Value</div>
-              <h2 class="section-title">Community & Insights</h2>
+              <h2 class="section-title">Real-Time, Always Updated</h2>
               <p class="section-description">
-                Engage in Discussion Feeds, track Real-Time Market Charts, and
-                stay informed with AI-Generated Articles summarizing key trends
-                in an easy-to-digest format.
+                Our platform provides real-time data that is constantly updated,
+                ensuring you always have the latest information at your
+                fingertips. Make smarter decisions, respond to changes faster,
+                and stay ahead of the competition with up-to-date insights.
               </p>
             </div>
           </div>
@@ -210,7 +222,7 @@
         </div>
       </div>
     </section>
-    <section class="neovis-about-section">
+    <section class="neovis-about-section" id="about">
       <div class="neovis-container">
         <div class="neovis-content-wrapper">
           <div class="neovis-text-content">
@@ -305,21 +317,19 @@
           <div class="analysis3steps-item">
             <div class="analysis3steps-icon">
               <img
-                src="../asset/ai-collaborate.svg"
+                src="../asset/review.svg"
                 alt="Collaborate Icon"
                 class="analysis3steps-svg-icon"
               />
             </div>
             <div class="analysis3steps-step-content">
-              <h3 class="analysis3steps-step-title">Review & Collaborate</h3>
+              <h3 class="analysis3steps-step-title">Review Analyze</h3>
               <p class="analysis3steps-step-desc">
-                Analyze AI-generated forecasts, Compare insights, refine
-                strategies, and discuss with the community.
+                Analyze AI-generated forecasts, Compare insights and refine
+                strategies.
               </p>
             </div>
           </div>
-
-          <button class="analysis3steps-open-btn">Open AI</button>
         </div>
 
         <div class="analysis3steps-right-content">
@@ -336,22 +346,22 @@
         </div>
       </div>
     </section>
-    <section class="inv_community_wrapper" id="community">
+    <section class="inv_community_wrapper" id="analysis">
       <!-- Gambar blur sebagai asset -->
       <img src="asset/elipse-5.svg" alt="" class="blur-image blur-image-1" />
       <img src="asset/elipse-6.svg" alt="" class="blur-image blur-image-2" />
 
       <div class="inv_community_container">
         <div class="inv_community_left_content">
-          <p class="inv_community_small_text">An Investment Community</p>
+          <p class="inv_community_small_text">An Investment</p>
           <h2 class="inv_community_heading">
-            Join the Community - Learn, Share & Grow Together
+            Join the Ai Analysis – Learn & Grow Together
           </h2>
-          <button class="inv_community_btn">Join Community</button>
+          <button class="inv_community_btn">Try Your Analysis</button>
           <p class="inv_community_description">
             Connect with traders and analysts to discuss strategies and refine
-            decisions. Get AI-backed insights and stay ahead in the market. Get
-            AI suggestions based on real community trends.
+            decisions. Gain AI-backed insights and stay ahead in the market. Get
+            AI suggestions based on real trends.
           </p>
         </div>
         <div class="inv_community_right_content">
@@ -437,18 +447,12 @@
             <h3 class="inalis-footer__column-title">Features</h3>
             <ul class="inalis-footer__links">
               <li class="inalis-footer__link-item">
-                <a href="#" class="inalis-footer__link">Smart Trades</a>
-              </li>
-              <li class="inalis-footer__link-item">
                 <a href="#" class="inalis-footer__link">AI Driven Prediction</a>
               </li>
               <li class="inalis-footer__link-item">
                 <a href="#" class="inalis-footer__link"
                   >Provided Analysis Evaluation</a
                 >
-              </li>
-              <li class="inalis-footer__link-item">
-                <a href="#" class="inalis-footer__link">Community & Insights</a>
               </li>
             </ul>
           </div>
@@ -458,13 +462,18 @@
             <h3 class="inalis-footer__column-title">Resources</h3>
             <ul class="inalis-footer__links">
               <li class="inalis-footer__link-item">
-                <a href="#" class="inalis-footer__link">Changelog</a>
+                <a href="#home" class="inalis-footer__link">Home</a>
               </li>
               <li class="inalis-footer__link-item">
-                <a href="#" class="inalis-footer__link">Pricing</a>
+                <a href="#about" class="inalis-footer__link">About</a>
               </li>
               <li class="inalis-footer__link-item">
-                <a href="#" class="inalis-footer__link">Community</a>
+                <a href="#main-value" class="inalis-footer__link">Main Value</a>
+              </li>
+              <li class="inalis-footer__link-item">
+                <a href="#how-it-works" class="inalis-footer__link"
+                  >How It Work</a
+                >
               </li>
             </ul>
           </div>
@@ -474,16 +483,13 @@
             <h3 class="inalis-footer__column-title">Other</h3>
             <ul class="inalis-footer__links">
               <li class="inalis-footer__link-item">
-                <a href="#" class="inalis-footer__link">About</a>
+                <a href="#" class="inalis-footer__link">Support</a>
               </li>
               <li class="inalis-footer__link-item">
                 <a href="#" class="inalis-footer__link">Privacy Policy</a>
               </li>
               <li class="inalis-footer__link-item">
                 <a href="#" class="inalis-footer__link">Terms of Service</a>
-              </li>
-              <li class="inalis-footer__link-item">
-                <a href="#" class="inalis-footer__link">Support</a>
               </li>
             </ul>
           </div>

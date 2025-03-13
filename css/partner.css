@@ -9,6 +9,7 @@
   height: 50vh;
   background-color: #000;
   color: #fff;
+  box-sizing: border-box;
   padding: 50px 0;
   font-family: Arial, sans-serif;
 }
@@ -76,9 +77,154 @@
   font-weight: normal;
   line-height: 1.3;
   right: 70%;
+  text-align: center;
   margin: 30px 0px;
 }
 
 .collab-light-text-unique {
   font-weight: normal;
 } 
+
+
+/* Base mobile styles (for screens up to 480px) */
+@media (max-width: 480px) {
+  .collab-section-unique {
+    height: auto;
+    padding: 40px 0;
+  }
+  
+  .collab-container-unique {
+    max-width: 100%;
+    padding: 0 20px;
+  }
+  
+  .collab-partners-container-unique {
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+  }
+  
+  .collab-partner-unique {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .collab-partner-logo-unique {
+    height: 24px;
+  }
+  
+  .collab-content-title-unique {
+    font-size: 24px;
+    text-align: center;
+  }
+  
+  .collab-section-title-unique {
+    font-size: 12px;
+    margin: 20px 0;
+  }
+}
+
+/* Small devices (576px and up) */
+@media (min-width: 481px) and (max-width: 576px) {
+  .collab-section-unique {
+    height: auto;
+    padding: 40px 0;
+  }
+  
+  .collab-container-unique {
+    max-width: 100%;
+    padding: 0 25px;
+  }
+  
+  .collab-partners-container-unique {
+    flex-wrap: wrap;
+    gap: 35px;
+  }
+  
+  .collab-partner-unique {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .collab-partner-logo-unique {
+    height: 25px;
+  }
+  
+  .collab-content-title-unique {
+    font-size: 26px;
+    text-align: center;
+  }
+}
+
+/* Medium devices (768px and up) */
+@media (min-width: 577px) and (max-width: 768px) {
+  .collab-section-unique {
+    height: auto;
+    padding: 45px 0;
+  }
+  
+  .collab-container-unique {
+    max-width: 100%;
+    padding: 0 30px;
+  }
+  
+  .collab-partners-container-unique {
+    flex-wrap: wrap;
+    gap: 40px;
+    margin: 25px 0;
+  }
+  
+  .collab-partner-unique {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .collab-partner-logo-unique {
+    height: 28px;
+  }
+  
+  .collab-content-title-unique {
+    font-size: 30px;
+    text-align: center;
+  }
+}
+
+/* Large devices (992px and up) */
+@media (min-width: 769px) and (max-width: 992px) {
+  .collab-section-unique {
+    height: auto;
+    min-height: 40vh;
+    padding: 50px 0;
+  }
+  
+  .collab-container-unique {
+    max-width: 750px;
+  }
+  
+  .collab-partners-container-unique {
+    gap: 40px;
+  }
+  
+  .collab-partner-logo-unique {
+    height: 28px;
+  }
+  
+  .collab-content-title-unique {
+    font-size: 32px;
+  }
+}
+
+/* Fix for the background gradient text on mobile */
+@media (max-width: 768px) {
+  .collab-content-container-unique {
+    background: linear-gradient(130deg, #F5F9FF 60%, rgba(245, 249, 255, 0.7) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-fill-color: transparent;
+    width: 100%;
+  }
+}
