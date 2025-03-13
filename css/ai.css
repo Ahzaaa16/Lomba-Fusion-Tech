@@ -1,0 +1,1343 @@
+/* Font import */
+@font-face {
+    font-family: 'Hailong';
+    src: url('/fonts/halong-vf.ttf') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root {
+    --primary-color: #87CEEB;
+    --secondary-color: #4682B4;
+    --dark-bg: #0E121A; /* Change from current dark background to #0E121A */
+    --darker-bg: #0e101a;
+    --card-bg: #202230;
+    --message-bg: #23242d;
+    --text-light: #ffffff;
+    --text-dim: rgba(255, 255, 255, 0.7);
+    --text-dimmer: rgba(255, 255, 255, 0.5);
+    --success-green: #4cd468;
+    --chart-green: #4cd468;
+    --chart-red: #ff6347;
+    --border-radius: 12px;
+    --sidebar-bg: #13161F;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Hailong', 'Inter', sans-serif;
+}
+
+body {
+    background-color: var(--dark-bg);
+    color: var(--text-light);
+    min-height: 100vh;
+    display: flex;
+    overflow-x: hidden;
+}
+
+/* Sidebar styles */
+.sidebar {
+    position: fixed;
+    left: 20px; /* Add margin from left edge */
+    top: 20px; /* Add margin from top */
+    bottom: 20px; /* Add margin from bottom */
+    width: 70px; /* Slightly smaller width */
+    background-color: #13161F; /* Your specified color */
+    border-radius: 16px; /* Rounded corners */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    z-index: 100;
+    transition: width 0.3s ease;
+}
+
+.sidebar.expanded {
+    width: 240px;
+}
+
+/* Logo positioning at the top */
+.sidebar-logo {
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+}
+
+/* Navigation container in the middle */
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    width: 100%;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* Individual navigation items */
+.nav-item {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 0;
+    color: #8A8F98;
+    cursor: pointer;
+    transition: color 0.2s, background-color 0.2s;
+    position: relative;
+}
+
+.sidebar.expanded .nav-item {
+    flex-direction: row;
+    padding: 12px 20px;
+    justify-content: flex-start;
+}
+
+.nav-item.active {
+    color: #ffffff;
+    position: relative;
+}
+
+.nav-item.active::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 24px;
+    background-color: #ffffff;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.nav-item:hover {
+    color: #ffffff;
+}
+
+.nav-icon {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+.nav-item:hover .nav-icon img,
+.nav-item.active .nav-icon img {
+    opacity: 1;
+}
+
+.nav-item span {
+    font-size: 12px;
+    margin-top: 5px;
+    display: none;
+    margin-left: 15px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.sidebar.expanded .nav-item span {
+    display: block;
+    margin-left: 12px;
+    opacity: 1;
+}
+
+/* User avatar at the bottom */
+.user-avatar {
+    margin-top: auto;
+    padding-top: 40px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.user-avatar img {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px; /* Square with rounded corners */
+    object-fit: cover;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+/* History sidebar styles */
+.history-sidebar {
+    position: fixed;
+    left: 100px; /* Position right after main sidebar + some space */
+    top: 20px;
+    bottom: 20px;
+    width: 0; /* Start with zero width */
+    background-color: #1A1E2A; /* Slightly lighter than sidebar */
+    border-radius: 16px;
+    overflow: hidden;
+    transition: width 0.3s ease, opacity 0.3s ease;
+    z-index: 99;
+    opacity: 0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.history-sidebar.open {
+    width: 280px; /* Width when open */
+    opacity: 1;
+}
+
+.history-header {
+    padding: 18px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.history-header h3 {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.history-close {
+    cursor: pointer;
+    color: #8A8F98;
+    font-size: 16px;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.history-close:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.history-content {
+    padding: 15px;
+    overflow-y: auto;
+    max-height: calc(100% - 60px);
+}
+
+.history-item {
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.history-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.history-item-title {
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.history-item-date {
+    color: #8A8F98;
+    font-size: 12px;
+}
+
+/* Update main content to make room for sidebar */
+#main-content {
+    margin-left: 120px; /* Sidebar width + left margin + some space */
+    transition: margin-left 0.3s ease;
+}
+
+/* When history sidebar is open */
+#main-content.history-open {
+    margin-left: 420px; /* Sidebar width + history sidebar width + spacing */
+}
+
+.main-content {
+    flex: 1;
+    padding: 0;
+    margin-left: 100px; /* Adjust based on sidebar width + spacing */
+    width: calc(100% - 100px);
+    transition: margin-left 0.3s ease, width 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--dark-bg);
+    position: relative;
+}
+
+.sidebar.expanded + .main-content {
+    margin-left: 240px;
+    width: calc(100% - 280px);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+}
+
+.header-title {
+    display: flex;
+    align-items: center;
+}
+
+.header-title h2 {
+    font-size: 24px;
+    font-weight: 500;
+    margin-left: 0; /* Remove any left margin that was accounting for the button */
+
+}
+
+.header-title .back-button {
+    display: none;
+}
+
+/* Hide the button from the header */
+.header-actions {
+    display: none;
+}
+
+/* Welcome screen styles */
+.welcome-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Changed from center to better position content */
+    text-align: center;
+    padding: 80px 20px 50px; /* Increased top padding */
+    height: calc(100vh - 80px);
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* Make the logo centered and positioned properly */
+.welcome-logo {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 40px; /* Increased bottom margin */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%); /* Ensure perfect horizontal centering */
+}
+
+.welcome-title {
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 10px; /* Reduced margin between titles */
+    text-align: center;
+    width: 100%;
+}
+
+.welcome-title:nth-of-type(2) {
+    margin-bottom: 20px; /* Space after "What shall we analyze today?" */
+}
+
+.welcome-subtitle {
+    font-size: 16px;
+    color: var(--text-dim);
+    max-width: 600px;
+    margin: 0 auto 40px; /* Center horizontally and add bottom margin */
+    line-height: 1.6;
+    text-align: center;
+}
+
+/* Make sure the input container is properly centered */
+.welcome-screen .input-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+/* Fix input actions alignment in welcome screen */
+.welcome-screen .input-actions {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    width: 100%;
+}
+
+/* Make disclaimer centered and add consistent spacing */
+.welcome-screen .disclaimer {
+    text-align: center;
+    margin-top: 40px;
+    max-width: 600px;
+}
+
+/* Updated input container styling to match ChatGPT style */
+.input-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px; /* Increased gap */
+}
+
+/* Style the input field to make room for buttons */
+.input-field {
+    width: 100%;
+    background-color: var(--card-bg);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 18px 20px;
+    padding-bottom: 60px; /* Make room for buttons at bottom */
+    color: var(--text-light);
+    font-size: 16px;
+    outline: none;
+    resize: none;
+    min-height: 120px; /* Increased height to fit buttons */
+    max-height: 200px;
+    overflow-y: auto;
+    line-height: 1.4;
+    position: relative;
+}
+
+.input-field:focus {
+    border-color: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.input-field::placeholder {
+    color: var(--text-dimmer);
+}
+
+/* Position action buttons inside the text field at the bottom */
+.input-actions {
+    position: absolute;
+    bottom: 10px; /* Position from bottom of input field */
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0 15px;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.input-actions-left {
+    display: flex;
+    gap: 12px;
+}
+
+.input-actions-right {
+    display: flex;
+}
+
+/* Make buttons transparent and appropriately sized */
+.input-action-btn,
+.send-btn {
+    background-color: transparent !important;
+    border: none;
+    border-radius: 6px;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0;
+    transition: background-color 0.2s;
+}
+
+.input-action-btn:hover,
+.send-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.input-action-btn img,
+.send-btn img {
+    width: 24px; 
+    height: 24px;
+    opacity: 0.7;
+}
+
+.input-action-btn:hover img,
+.send-btn:hover img {
+    opacity: 1;
+}
+
+/* Update welcome screen disclaimer positioning */
+.welcome-screen .disclaimer {
+    margin-top: 40px;
+    text-align: center;
+}
+
+/* Bottom input container for chat view */
+.bottom-input-container {
+    position: fixed;
+    bottom: 0;
+    left: 100px;
+    width: calc(100% - 100px - 300px);
+    background-color: var(--dark-bg);
+    padding: 20px 40px 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    z-index: 10;
+}
+
+.bottom-input-container .input-container {
+    margin: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .bottom-input-container {
+        width: calc(100% - 100px);
+    }
+}
+
+@media (max-width: 768px) {
+    .bottom-input-container {
+        left: 60px;
+        width: calc(100% - 60px);
+        padding: 15px 20px 25px;
+    }
+}
+
+/* Fix for any inline styles */
+.input-actions[style] {
+    position: absolute !important;
+    margin: 0 !important;
+    bottom: 10px !important;
+}
+
+/* Add margin to chat messages to prevent overlap with input container */
+.chat-messages {
+    margin-bottom: 120px; /* Make space for the fixed input container */
+}
+
+/* Add a small disclaimer below the input with more spacing */
+.input-disclaimer {
+    font-size: 12px;
+    color: var(--text-dimmer);
+    text-align: center;
+    margin-top: 12px;
+}
+
+/* Action buttons container below input */
+.input-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0 8px;
+}
+
+.input-actions-left {
+    display: flex;
+    gap: 12px;
+}
+
+.input-actions-right {
+    display: flex;
+}
+
+/* Styling for the action buttons */
+.input-action-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-dim);
+    cursor: pointer;
+    border-radius: 6px;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.input-action-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-light);
+}
+
+.input-action-btn img {
+    width: 20px;
+    height: 20px;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+.input-action-btn:hover img {
+    opacity: 1;
+}
+
+/* Send button styling */
+.send-btn {
+    background-color: var(--primary-color);
+    color: #13161F;
+    border: none;
+    border-radius: 6px;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.send-btn:hover {
+    background-color: #9ad3ec;
+    transform: scale(1.05);
+}
+
+.send-btn img {
+    width: 16px;
+    height: 16px;
+}
+
+.send-btn:disabled {
+    background-color: rgba(135, 206, 235, 0.3);
+    cursor: not-allowed;
+    transform: none;
+}
+
+.input-actions {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+}
+
+.input-action-btn {
+    background: none;
+    border: none;
+    color: var(--text-dim);
+    font-size: 18px;
+    cursor: pointer;
+    margin-left: 15px;
+    transition: color 0.2s ease;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.input-action-btn:hover {
+    color: var(--text-light);
+}
+
+/* News feed */
+.news-feed {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    padding: 20px;
+    margin-left: auto;
+}
+
+/* Move button to the top of news feed */
+.news-feed-header {
+    margin-bottom: 20px;
+}
+
+.news-card {
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.news-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.news-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 10px;
+}
+
+.news-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.news-author {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.news-title {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.news-content {
+    font-size: 14px;
+    color: var(--text-dim);
+    line-height: 1.4;
+    margin-bottom: 5px;
+}
+
+.news-see-more {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px 0;
+}
+
+.news-see-more span {
+    font-size: 14px;
+    color: var (--text-dim);
+    margin-right: 10px;
+}
+
+/* Chat styles */
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 0;
+    height: calc(100vh - 80px);
+}
+
+.chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.message {
+    max-width: 70%;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.message-avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.message-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.message-content {
+    background-color: var(--message-bg);
+    padding: 15px;
+    border-radius: var(--border-radius);
+}
+
+.message-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.message-sender {
+    font-weight: 500;
+}
+
+.message-time {
+    font-size: 12px;
+    color: var(--text-dimmer);
+}
+
+.message-text {
+    line-height: 1.5;
+}
+
+.message.user {
+    align-self: flex-end;
+    flex-direction: row-reverse;
+}
+
+.message.user .message-avatar {
+    margin-right: 0;
+    margin-left: 15px;
+}
+
+.message.user .message-content {
+    background-color: rgba(70, 130, 180, 0.3);
+}
+
+.message-file {
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+.message-file-icon {
+    margin-right: 10px;
+    color: var(--text-dim);
+}
+
+.message-file-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.message-file-name {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.message-file-size {
+    font-size: 12px;
+    color: var(--text-dimmer);
+}
+
+.message-file-close {
+    margin-left: 10px;
+    cursor: pointer;
+    color: var(--text-dim);
+}
+
+/* Chart and analysis styles */
+.analysis-container {
+    background-color: var(--message-bg);
+    border-radius: var(--border-radius);
+    padding: 0;
+    margin-top: 0;
+}
+
+.indicators {
+    margin-bottom: 20px;
+    padding: 15px;
+}
+
+.coin-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.coin-price {
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--chart-green);
+    display: flex;
+    align-items: center;
+}
+
+.coin-change {
+    font-size: 14px;
+    margin-left: 10px;
+    color: var(--text-light);
+}
+
+.coin-badge {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 5px 10px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.coin-badge img {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+}
+
+.chart-container {
+    width: 100%;
+    height: 250px;
+    margin-bottom: 20px;
+    position: relative;
+    padding: 0 15px;
+}
+
+.chart-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(20, 22, 30, 1) 0%, rgba(20, 22, 30, 1) 100%);
+    border-radius: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.price-axis {
+    position: absolute;
+    right: 15px;
+    top: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.price-label {
+    font-size: 12px;
+    color: var(--text-dim);
+}
+
+.chart-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: dash 2s linear forwards;
+}
+
+@keyframes dash {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+.chart-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    pointer-events: none;
+}
+
+.grid-line {
+    width: 100%;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.chart-labels {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px 15px;
+}
+
+.chart-label {
+    font-size: 12px;
+    color: var(--text-dimmer);
+}
+
+.analysis-section {
+    margin-bottom: 25px;
+    padding: 0 15px;
+}
+
+.section-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.analysis-list {
+    list-style: none;
+}
+
+.analysis-item {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: flex-start;
+    padding-left: 15px;
+    position: relative;
+}
+
+.analysis-item::before {
+    content: "•";
+    color: var(--text-light);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+.disclaimer {
+    font-size: 14px;
+    color: var(--text-dimmer);
+    margin-top: 20px;
+    padding: 0 15px;
+    font-style: italic;
+}
+
+/* Modal styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(14, 18, 26, 0.8); /* Using #0E121A with opacity */
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal {
+    background-color: var(--darker-bg);
+    border-radius: var(--border-radius);
+    width: 90%;
+    max-width: 500px;
+    padding: 30px;
+    position: relative;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.modal-overlay.active .modal {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 20px;
+    color: var(--text-dim);
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.modal-close:hover {
+    color: var(--text-light);
+}
+
+.modal-title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.modal-subtitle {
+    font-size: 16px;
+    color: var(--text-dim);
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.modal-option {
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.modal-option:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.modal-option-icon {
+    font-size: 20px;
+    margin-right: 20px;
+}
+
+.modal-option-text {
+    flex: 1;
+}
+
+.modal-option-arrow {
+    color: var(--text-dim);
+}
+
+/* Recent screens */
+.recent-screen {
+    padding: 20px;
+}
+
+.recent-section {
+    margin-bottom: 30px;
+}
+
+.recent-section-title {
+    font-size: 14px;
+    color: var(--text-dim);
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.recent-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.recent-item:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.recent-item-icon {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+}
+
+.recent-item-icon i {
+    font-size: 18px;
+    color: var(--text-dim);
+}
+
+.recent-item-name {
+    font-weight: 500;
+}
+
+.recent-item-tag {
+    font-size: 12px;
+    color: var (--text-dim);
+    margin-left: 10px;
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 3px 8px;
+    border-radius: 10px;
+}
+
+/* Chat input container fixed to bottom */
+.bottom-input-container {
+    position: fixed;
+    bottom: 0;
+    left: 100px; /* Adjusted for sidebar width + margin */
+    width: calc(100% - 100px - 300px); /* Account for sidebar and news feed */
+    background-color: var(--dark-bg);
+    padding: 20px 40px 30px 40px; /* More padding especially at bottom */
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    z-index: 10;
+}
+
+.sidebar.expanded + .main-content .bottom-input-container {
+    left: 280px;
+    width: calc(100% - 280px);
+}
+
+/* Add this to your CSS file for the typing indicator */
+.typing-indicator {
+    margin-bottom: 10px;
+}
+
+/* Fixed the typing indicator dots for better visibility */
+.typing-dots {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 10px 15px;
+}
+
+.typing-dots span {
+    height: 8px;
+    width: 8px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    display: inline-block;
+    animation: dot-pulse 1.5s infinite ease-in-out;
+}
+
+.typing-dots span:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.typing-dots span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.typing-dots span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes dot-pulse {
+    0%, 60%, 100% {
+        transform: scale(1);
+        opacity: 0.6;
+    }
+    30% {
+        transform: scale(1.5);
+        opacity: 1;
+    }
+}
+
+/* Responsive styles */
+@media (max-width: 992px) {
+    .news-feed {
+        display: none;
+    }
+    .bottom-input-container {
+        width: calc(100% - 100px); /* No news feed on smaller screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 60px;
+    }
+    .main-content {
+        margin-left: 60px;
+        width: calc(100% - 60px);
+    }
+    .message {
+        max-width: 85%;
+    }
+    .coin-price {
+        font-size: 24px;
+    }
+    .bottom-input-container {
+        left: 60px;
+        width: calc(100% - 60px);
+        padding: 15px 10px;
+    }
+    .sidebar.expanded + .main-content .bottom-input-container {
+        left: 60px;
+        width: calc(100% - 60px);
+    }
+}
+
+@media (max-width: 576px) {
+    .header {
+        padding: 15px;
+    }
+    .header-title h2 {
+        font-size: 20px;
+    }
+    .welcome-title {
+        font-size: 24px;
+    }
+    .welcome-subtitle {
+        font-size: 14px;
+    }
+    .message {
+        max-width: 95%;
+    }
+}
+
+/* Overlay when history is open */
+.history-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 98;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.history-overlay.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Add a small disclaimer below the input */
+.input-disclaimer {
+    font-size: 12px;
+    color: var(--text-dimmer);
+    text-align: center;
+    margin-top: 12px;
+}
+
+/* Responsive adjustments */
+@media (max-height: 700px) {
+    .welcome-screen {
+        padding-top: 50px;
+    }
+    
+    .welcome-logo {
+        margin-bottom: 25px;
+    }
+    
+    .welcome-screen .disclaimer {
+        bottom: 20px;
+    }
+}
+
+/* Updated AI Sharing button styles */
+.ai-sharing-btn {
+    background: linear-gradient(135deg, #E9FFFF 0%, #478DE0 100%);
+    color: white; /* White text */
+    border: none;
+    border-radius: 8px;
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    font-weight: 500;
+    box-shadow: 0 2px 8px rgba(71, 141, 224, 0.3);
+    margin-bottom: 20px; /* Add space below button */
+    width: 100%; /* Make button full width */
+}
+
+.ai-sharing-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(71, 141, 224, 0.5);
+}
+
+.ai-sharing-btn img {
+    width: 18px;
+    height: 18px;
+    margin-right: 10px;
+}
