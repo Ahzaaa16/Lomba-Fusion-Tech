@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inalis AI - Cryptocurrency Analysis</title>
+    <link rel="stylesheet" href="/css/ai.css">
+</head>
+<body>
+ <!-- Updated sidebar HTML structure -->
+<div class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+        <img src="/asset/aisidebar.png" alt="Inalis Logo" width="40" height="40">
+    </div>
+    <div class="sidebar-nav">
+        <div class="nav-item active" data-view="welcome">
+            <div class="nav-icon">
+                <img src="/asset/icon-1.png" alt="Chat">
+            </div>
+        </div>
+        <div class="nav-item" data-action="toggle-history">
+            <div class="nav-icon">
+                <img src="/asset/iconai2.png" alt="History">
+            </div>
+        </div>
+    </div>
+    <div class="user-avatar">
+        <img src="/asset/user.png" alt="User avatar">
+    </div>
+</div>
+
+    <!-- Add history sidebar -->
+    <div class="history-sidebar" id="history-sidebar">
+        <div class="history-header">
+            <h3>History</h3>
+            <div class="history-close" id="close-history">✕</div>
+        </div>
+        <div class="history-content">
+            <div class="history-item">
+                <div class="history-item-title">Bitcoin Analysis</div>
+                <div class="history-item-date">Today, 6:30 PM</div>
+            </div>
+            <div class="history-item">
+                <div class="history-item-title">Ethereum Price Prediction</div>
+                <div class="history-item-date">Yesterday, 2:15 PM</div>
+            </div>
+            <div class="history-item">
+                <div class="history-item-title">Mog Analysis</div>
+                <div class="history-item-date">Apr 18, 2023</div>
+            </div>
+            <div class="history-item">
+                <div class="history-item-title">Solana Ecosystem Overview</div>
+                <div class="history-item-date">Apr 15, 2023</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main content area -->
+    <main class="main-content" id="main-content">
+        <div class="header">
+            <div class="header-title">
+                <h2>Recent</h2>
+            </div>
+            <div class="header-actions">
+                <button class="ai-sharing-btn" id="open-share-modal">
+                    <i>🔄</i>
+                    <span>AI Sharing</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Recent view -->
+        <div class="recent-screen" id="recent-screen">
+            <div class="recent-section">
+                <div class="recent-section-title">TODAY</div>
+                <div class="recent-item">
+                    <div class="recent-item-icon">
+                        <i>⚙️</i>
+                    </div>
+                    <div class="recent-item-name">Binance</div>
+                    <div class="recent-item-tag">BNB</div>
+                </div>
+            </div>
+            <div class="recent-section">
+                <div class="recent-section-title">YESTERDAY</div>
+                <div class="recent-item">
+                    <div class="recent-item-icon">
+                        <i>₿</i>
+                    </div>
+                    <div class="recent-item-name">Bitcoin</div>
+                    <div class="recent-item-tag">BNB</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Welcome Screen -->
+        <div class="welcome-screen" id="welcome-screen">
+            <div class="welcome-logo">
+                <img src="/asset/welcome-logo.png" alt="Inalis AI Logo" width="70" height="70">
+            </div>
+            <h1 class="welcome-title">Hi, Arya Fatdhilah</h1>
+            <h2 class="welcome-title">What shall we analyze today?</h2>
+            <p class="welcome-subtitle">
+                Let AI help you analyze your crypto assets with ease and confidence. Pick a method and get started!
+            </p>
+            
+            <div class="input-container">
+                <textarea class="input-field" placeholder="What do you want to analyze" id="query-input"></textarea>
+                <div class="input-actions" style="margin: 10px 0;">
+                    <div class="input-actions-left">
+                        <button class="input-action-btn"  id="upload-file-btn" title="Upload a file">
+                                <img src="/asset/plusiconchat.png" alt="Upload">
+                            </button>
+                            <button class="input-action-btn"  title="Search the web">
+                                <img src="/asset/searchiconchat.png" alt="Search">
+                            </button>
+                    </div>
+                    <div class="input-actions-right">
+                        <button class="send-btn" id="welcome-send-btn">
+                            <img src="/asset/entericonchat.png" alt="Send">
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <p class="disclaimer" style="margin-top: 200px;">Inalis estimates prices based on your analysis but doesn't recommend buying or selling assets.</p>
+        </div>
+
+        <!-- Chat View -->
+        <div class="chat-container" id="chat-view" style="display: none;">
+            <div class="chat-messages" id="chat-messages">
+                <!-- User message with file -->
+                <div class="message user">
+                    <div class="message-avatar">
+                        <img src="/asset/user.png" alt="User avatar">
+                    </div>
+                    <div class="message-content">
+                        <div class="message-header">
+                            <span class="message-sender">Arya Fatdhilah</span>
+                            <span class="message-time">6:17 AM</span>
+                        </div>
+                        <div class="message-text">
+                            <p>Hello, please predict the price for the next 6-12 months using my analysis and chart.</p>
+                        </div>
+                        <div class="message-file">
+                            <div class="message-file-icon">📄</div>
+                            <div class="message-file-info">
+                                <span class="message-file-name">Mog Analysis</span>
+                                <span class="message-file-size">docs · 54.5 KB</span>
+                            </div>
+                            <div class="message-file-close">✕</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI Response -->
+                <div class="message">
+                    <div class="message-avatar">
+                        <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="35" height="35" rx="17.5" fill="white"/>
+                            <path d="M17.5 8.75C12.6675 8.75 8.75 12.6675 8.75 17.5C8.75 22.3325 12.6675 26.25 17.5 26.25C22.3325 26.25 26.25 22.3325 26.25 17.5C26.25 12.6675 22.3325 8.75 17.5 8.75ZM13.5625 20.5625L11.375 18.375L13.5625 16.1875L15.75 18.375L13.5625 20.5625ZM17.5 24.5L15.3125 22.3125L17.5 20.125L19.6875 22.3125L17.5 24.5ZM19.6875 20.5625L17.5 18.375L19.6875 16.1875L21.875 18.375L19.6875 20.5625ZM17.5 15.75L15.3125 13.5625L17.5 11.375L19.6875 13.5625L17.5 15.75Z" fill="#000"/>
+                        </svg>
+                    </div>
+                    <div class="message-content">
+                        <div class="message-header">
+                            <span class="message-sender">Inalis AI</span>
+                            <span class="message-time">6:17 AM</span>
+                        </div>
+                        
+                        <div class="analysis-container">
+                            <div class="indicators">
+                                <h3>Indicators</h3>
+                                <div class="coin-info">
+                                    <div class="coin-price">$0.119193 <span class="coin-change">↗️x82.7%</span></div>
+                                    <div class="coin-badge">
+                                        <img src="asset/mogcoin.png" alt="Mog Coin">
+                                        <span>Mog Coin</span>
+                                        <span>Meme</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="chart-container">
+                                <div class="chart-placeholder">
+                                    <div class="chart-grid">
+                                        <div class="grid-line"></div>
+                                        <div class="grid-line"></div>
+                                        <div class="grid-line"></div>
+                                        <div class="grid-line"></div>
+                                        <div class="grid-line"></div>
+                                    </div>
+                                    <div class="price-axis">
+                                        <span class="price-label">$0.119</span>
+                                        <span class="price-label">$0.092</span>
+                                        <span class="price-label">$0.075</span>
+                                        <span class="price-label">$0.065</span>
+                                    </div>
+                                    <svg width="100%" height="100%" viewBox="0 0 400 200" preserveAspectRatio="none">
+                                        <!-- Green line (main chart line) -->
+                                        <path d="M0,150 C50,140 100,145 150,120 S250,80 300,70 S350,50 400,30" stroke="#4cd468" stroke-width="2" fill="none" class="chart-line"/>
+                                        <path d="M0,150 C50,140 100,145 150,120 S250,80 300,70 S350,50 400,30 L400,200 L0,200 Z" fill="url(#gradient)" opacity="0.2"/>
+                                        
+                                        <!-- Red line (comparison or secondary data) -->
+                                        <path d="M0,160 C30,158 60,162 90,156 S150,130 200,140 S250,145 300,140 S350,138 400,135" stroke="#ff6347" stroke-width="2" fill="none" class="chart-line"/>
+                                        
+                                        <defs>
+                                            <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                                <stop offset="0%" stop-color="#4cd468" stop-opacity="0.7"/>
+                                                <stop offset="100%" stop-color="#4cd468" stop-opacity="0"/>
+                                            </linearGradient>
+                                        </defs>
+                                    </svg>
+                                </div>
+                                <div class="chart-labels">
+                                    <span class="chart-label">Mar</span>
+                                    <span class="chart-label">Apr</span>
+                                    <span class="chart-label">May</span>
+                                    <span class="chart-label">Jun</span>
+                                    <span class="chart-label">Jul</span>
+                                    <span class="chart-label">Aug</span>
+                                </div>
+                            </div>
+                            
+                            <div class="message-text">
+                                <p>Hello Arya, here is the price prediction for Mog Coin based on your uploaded analysis:</p>
+                            </div>
+                            
+                            <div class="analysis-section">
+                                <h3 class="section-title">Why is Mog Coin increasing?</h3>
+                                <ul class="analysis-list">
+                                    <li class="analysis-item">According to your analysis, the price has risen due to increased trading volume and retail investor FOMO.</li>
+                                    <li class="analysis-item">Expanded ecosystem adoption, including integration with DeFi platforms, has boosted demand.</li>
+                                    <li class="analysis-item">The new developer roadmap has strengthened market confidence in long-term growth.</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="analysis-section">
+                                <h3 class="section-title">Suggestions:</h3>
+                                <ul class="analysis-list">
+                                    <li class="analysis-item">If you're looking to enter, consider waiting for a price correction to the $0.082 - $0.100 range to minimize risk.</li>
+                                    <li class="analysis-item">If you already hold MOG, consider taking partial profits at the $0.125 and $0.150 resistance levels.</li>
+                                    <li class="analysis-item">Keep an eye on market sentiment and social media trends, as Mog Coin's price is heavily influenced by community activity.</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="analysis-section">
+                                <h3 class="section-title">Bullish Potential:</h3>
+                                <ul class="analysis-list">
+                                    <li class="analysis-item">If the price breaks $0.125, it could rally toward $0.150 - $0.175 in the coming months.</li>
+                                    <li class="analysis-item">Increased adoption and positive social trends could drive demand higher.</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="analysis-section">
+                                <h3 class="section-title">Bearish Risks:</h3>
+                                <ul class="analysis-list">
+                                    <li class="analysis-item">If Mog Coin fails to hold the $0.092 support level, it could decline to $0.075 - $0.085.</li>
+                                    <li class="analysis-item">Stricter crypto regulations or fading market interest could slow further price growth.</li>
+                                </ul>
+                            </div>
+                            
+                            <p class="disclaimer">Disclaimer: This analysis is for reference only and does not constitute financial advice.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Chat View Bottom Input -->
+            <div class="bottom-input-container">
+                <div class="input-container" style="margin: 0;">
+                    <textarea class="input-field" placeholder="What do you want to analyze" id="chat-input"></textarea>
+                    <div class="input-actions">
+                        <div class="input-actions-left">
+                            <button class="input-action-btn" id="chat-upload-btn" title="Upload a file">
+                                <img src="/asset/plusiconchat.png" alt="Upload">
+                            </button>
+                            <button class="input-action-btn" title="Search the web">
+                                <img src="/asset/searchiconchat.png" alt="Search">
+                            </button>
+                        </div>
+                        <div class="input-actions-right">
+                            <button class="send-btn" id="send-message-btn">
+                                <img src="/asset/entericonchat.png" alt="Send">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <p class="input-disclaimer">Inalis may provide inaccurate information. Verify important information.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- News feed (right sidebar) - Updated with AI Sharing button at top -->
+    <div class="news-feed" id="news-feed">
+        <div class="news-feed-header">
+            <button class="ai-sharing-btn" id="open-share-modal">
+                <img src="/asset/globesharing.png" alt="Share">
+                <span>AI Sharing</span>
+            </button>
+        </div>
+        
+        <div class="news-card">
+            <div class="news-header">
+                <div class="news-avatar">
+                    <img src="/asset/useradit.png" alt="News avatar">
+                </div>
+                <div class="news-author">Rasya Aditya</div>
+            </div>
+            <div class="news-title">
+                BlackRock untuk pertama kalinya memasukkan exchange-traded fund (ETF)
+            </div>
+            <div class="news-content">
+                Bitcoin merangkak naik ke level US$85.158 atau 5,6% dalam perdagangan satu hari terakhir.
+            </div>
+        </div>
+        
+        <div class="news-card">
+            <div class="news-header">
+                <div class="news-avatar">
+                    <img src="/asset/useradit.png" alt="News avatar">
+                </div>
+                <div class="news-author">Rasya Aditya</div>
+            </div>
+            <div class="news-title">
+                Presiden AS Donald Trump membentuk cadangan strategis crypto.
+            </div>
+            <div class="news-content">
+                Karenanya, token seperti XRP, Solana (SOL), dan Cardano (ADA) diisukan meleset hingga puluhan persen.
+            </div>
+        </div>
+        
+        <div class="news-see-more">
+            <span>See more</span>
+            <i>→</i>
+        </div>
+    </div>
+
+    <!-- Share modal -->
+    <div class="modal-overlay" id="share-modal">
+        <div class="modal">
+            <div class="modal-close" id="close-modal">✕</div>
+            <h2 class="modal-title">Share Conversation</h2>
+            <p class="modal-subtitle">You can collaborate and spread it to the community</p>
+            
+            <div class="modal-option" id="collaboration-option">
+                <div class="modal-option-icon">✱</div>
+                <div class="modal-option-text">Collaboration</div>
+                <div class="modal-option-arrow">→</div>
+            </div>
+            
+            <div class="modal-option" id="community-option">
+                <div class="modal-option-icon">👥</div>
+                <div class="modal-option-text">Share to community</div>
+                <div class="modal-option-arrow">→</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/ai.js">
+        
+    </script>
+ 
+</body>
+</html>
